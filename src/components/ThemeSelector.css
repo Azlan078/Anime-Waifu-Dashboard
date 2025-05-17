@@ -1,0 +1,122 @@
+.theme-selector {
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .theme-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #f0f0f0;
+  }
+  
+  .theme-options {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .theme-option {
+    display: flex;
+    align-items: center;
+    background-color: rgba(40, 40, 40, 0.6);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #f0f0f0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 0 transparent;
+  }
+  
+  .theme-option:hover {
+    background-color: rgba(60, 60, 60, 0.8);
+    transform: translateY(-2px);
+  }
+  
+  .theme-option.active,
+  .theme-option:focus,
+  .theme-option:hover {
+    border-color: var(--theme-color);
+    background-color: rgba(60, 60, 60, 0.9);
+    box-shadow:
+      0 0 8px 2px var(--theme-color),
+      0 0 20px 4px var(--theme-color);
+    animation: ledGlow 1.5s infinite alternate;
+  }
+  
+  @keyframes ledGlow {
+    from {
+      box-shadow:
+        0 0 8px 2px var(--theme-color),
+        0 0 20px 4px var(--theme-color, #ff3d71);
+    }
+    to {
+      box-shadow:
+        0 0 16px 4px var(--theme-color),
+        0 0 40px 8px var(--theme-color, #ff3d71);
+    }
+  }
+  
+  .theme-option.active {
+    border-color: var(--theme-color);
+    background-color: rgba(60, 60, 60, 0.9);
+    box-shadow: 0 0 10px rgba(var(--theme-color-rgb, 255, 61, 113), 0.3);
+  }
+  
+  .theme-color-preview {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--theme-color);
+    margin-right: 0.5rem;
+    display: inline-block;
+    box-shadow: 0 0 5px var(--theme-color);
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .theme-options {
+      gap: 0.5rem;
+    }
+    
+    .theme-option {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .theme-selector {
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .theme-title {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .theme-option {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+    }
+    
+    .theme-color-preview {
+      width: 12px;
+      height: 12px;
+    }
+  }

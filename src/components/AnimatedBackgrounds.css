@@ -1,0 +1,460 @@
+/* Falling Stars Animation */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) translateX(100px) rotate(180deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Star colors for different themes */
+  .theme-winter .star {
+      background: #fff;
+      box-shadow: 0 0 15px rgba(165, 180, 252, 0.8);
+      width: 3px;
+      height: 3px;
+  }
+  
+  .theme-aurora .star {
+      background: #86efac;
+      box-shadow: 0 0 15px rgba(74, 222, 128, 0.8);
+      width: 2px;
+      height: 2px;
+  }
+  
+  /* Cyberpunk Theme Background */
+  .cyberpunk-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(0, 255, 240, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 255, 240, 0.1) 1px, transparent 1px);
+    z-index: 0;
+    pointer-events: none;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    animation: gridPulse 8s infinite linear;
+  }
+  
+  @keyframes gridPulse {
+    0% {
+      opacity: 0.3;
+      background-size: 50px 50px;
+    }
+    50% {
+      opacity: 0.6;
+      background-size: 52px 52px;
+    }
+    100% {
+      opacity: 0.3;
+      background-size: 50px 50px;
+    }
+  }
+  
+  /* Forest Theme Particles */
+  .forest-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .leaf {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(0, 200, 83, 0.6);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3C9,14,14,8.4,22,5,20.91,6.76,19.64,8.43,18.25,10c-2.37,2.7-5.66,5.33-10.25,8.73L7,14c2.65-1.81,4.84-3.5,6.71-5.27C15.68,6.4,16.56,5.15,17,8Z'/%3E%3C/svg%3E");
+    mask-size: contain;
+    opacity: 0;
+    animation: leafFall linear infinite;
+  }
+  
+  @keyframes leafFall {
+    0% {
+      transform: translate3d(0, -50px, 0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate3d(50px, 110vh, 0) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Sunset Theme Background */
+  .sunset-rays {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 145, 0, 0.1) 0%,
+        transparent 2%,
+        transparent 4%,
+        rgba(255, 145, 0, 0.1) 6%
+      );
+    z-index: 0;
+    pointer-events: none;
+    animation: rayRotate 30s infinite linear;
+  }
+  
+  @keyframes rayRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Midnight Theme */
+  .midnight-stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, rgba(61, 90, 254, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: 0;
+    pointer-events: none;
+    animation: twinkle 8s infinite alternate;
+  }
+  
+  @keyframes twinkle {
+    0% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
+
+  /* Winter Night Theme */
+  .winter-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    z-index: -1;
+  }
+
+  .theme-winter {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  }
+
+  /* Northern Lights Theme */
+  .aurora-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #042f2e 0%, #064e3b 100%);
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .theme-aurora {
+    background: linear-gradient(135deg, #042f2e 0%, #064e3b 100%);
+  }
+
+  .aurora-waves {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(
+      180deg,
+      rgba(74, 222, 128, 0.2) 0%,
+      rgba(74, 222, 128, 0) 100%
+    );
+    filter: blur(30px);
+    animation: auroraWave 8s infinite ease-in-out;
+  }
+
+  .theme-aurora .aurora-waves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(74, 222, 128, 0.2) 0%,
+      rgba(74, 222, 128, 0) 100%
+    );
+    filter: blur(30px);
+    animation: auroraWave 8s infinite ease-in-out;
+  }
+
+  @keyframes auroraWave {
+    0%, 100% {
+      transform: translateY(-30%) rotate(-5deg);
+    }
+    50% {
+      transform: translateY(-25%) rotate(5deg);
+    }
+  }
+
+  /* Add moonlit theme specific star animations */
+  .theme-moonlit .stars-container {
+    background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0), rgba(30, 58, 138, 0.8));
+  }
+
+  .theme-moonlit .star {
+    animation-duration: 3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-moonlit .star:nth-child(3n) {
+    width: 3px;
+    height: 3px;
+    animation-duration: 4s;
+  }
+
+  .theme-moonlit .star:nth-child(5n) {
+    width: 1px;
+    height: 1px;
+    animation-duration: 2s;
+  }
+
+  /* Ocean Void animated effects */
+.oceanvoid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.oceanvoid-reflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(0deg, rgba(59, 130, 246, 0.2), transparent);
+  opacity: 0.7;
+  transform-origin: bottom;
+  animation: reflectionRipple 10s ease-in-out infinite;
+}
+
+@keyframes reflectionRipple {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1.05);
+    opacity: 0.9;
+  }
+}
+
+.theme-oceanvoid .star {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+}
+
+/* Add floating light particles */
+.theme-oceanvoid .dashboard-container::before {
+  animation: particleFloat 180s linear infinite;
+}
+
+/* Add this new cloud styling section */
+.clouds-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  animation: floatCloud linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 50%;
+  height: 50%;
+  top: -25%;
+  left: 25%;
+}
+
+.cloud::after {
+  width: 70%;
+  height: 70%;
+  top: -35%;
+  right: 25%;
+}
+
+@keyframes floatCloud {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+/* Update the existing moonlit theme cloud styles */
+.theme-moonlit .dashboard-container::after {
+  content: none; /* Remove the old cloud implementation */
+}
+
+.theme-moonlit .clouds-container .cloud {
+  opacity: 0.15;
+  filter: blur(3px);
+}
+
+.theme-moonlit .clouds-container .cloud:nth-child(1) {
+  width: 200px;
+  height: 60px;
+  top: 20%;
+  animation-duration: 90s;
+}
+
+.theme-moonlit .clouds-container .cloud:nth-child(2) {
+  width: 150px;
+  height: 45px;
+  top: 40%;
+  animation-duration: 60s;
+  animation-delay: -20s;
+}
+
+.theme-moonlit .clouds-container .cloud:nth-child(3) {
+  width: 180px;
+  height: 55px;
+  top: 60%;
+  animation-duration: 75s;
+  animation-delay: -45s;
+}
+
+/* Update Cosmic Theme Background Effects */
+.theme-cosmic .dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50% 50%, rgba(142, 45, 226, 0.15) 100%, transparent),
+    radial-gradient(2px 2px at 40% 40%, rgba(142, 45, 226, 0.2) 100%, transparent),
+    radial-gradient(2px 2px at 30% 30%, rgba(74, 0, 224, 0.3) 100%, transparent),
+    radial-gradient(4px 4px at 20% 20%, rgba(74, 0, 224, 0.4) 100%, transparent);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  animation: starsAnimation 180s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.theme-cosmic .moon {
+  background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+  box-shadow: 
+    0 0 30px #8e2de2,
+    0 0 60px rgba(142, 45, 226, 0.4),
+    0 0 90px rgba(142, 45, 226, 0.2);
+}
+
+/* Add cosmic energy beam and glow effects */
+.cosmic-beam::before,
+.cosmic-beam::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  filter: blur(20px);
+  opacity: 0.5;
+}
+
+.cosmic-beam::before {
+  animation: beamGlow 4s infinite alternate;
+}
+
+.cosmic-beam::after {
+  animation: beamGlow 6s infinite alternate-reverse;
+}
+
+@keyframes beamGlow {
+  0% {
+    width: 100%;
+    opacity: 0.3;
+  }
+  100% {
+    width: 200%;
+    opacity: 0.6;
+  }
+}

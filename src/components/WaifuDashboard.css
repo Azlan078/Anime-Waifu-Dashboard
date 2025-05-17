@@ -1,0 +1,1027 @@
+/* WaifuDashboard.css - Enhanced Version with Theme Support */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@400;500;700&display=swap');
+
+:root {
+  /* Default Theme (Sakura Pink) */
+  --primary-color: #ff3d71;
+  --primary-hover: #ff619b;
+  --secondary-color: #7b4397;
+  --text-color: #f0f0f0;
+  --text-secondary: #b3b3b3;
+  --background-dark: #121212;
+  --background-card: rgba(30, 30, 30, 0.8);
+  --overlay-color: rgba(0, 0, 0, 0.75);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --gradient-bg: linear-gradient(135deg, #121212, #1a0033);
+  --accent-gradient: linear-gradient(45deg, #ff3d71, #7b4397);
+  --card-radius: 12px;
+  --button-radius: 50px;
+  --transition-normal: all 0.3s ease;
+
+  /* Moonlit theme variables */
+  --moonlit-primary: #60a5fa;
+  --moonlit-secondary: #818cf8;
+  
+  /* Forest theme variables */
+  --forest-primary: #4ade80;
+  --forest-secondary: #22c55e;
+}
+
+/* Cyber Neon Theme */
+.theme-cyberpunk {
+  --primary-color: #00fff0;
+  --primary-hover: #00e5ff;
+  --secondary-color: #d500f9;
+  --gradient-bg: linear-gradient(135deg, #0a1a1e, #16001e);
+  --accent-gradient: linear-gradient(45deg, #00fff0, #d500f9);
+  --background-card: rgba(20, 25, 40, 0.8);
+}
+
+/* Sunset Orange Theme */
+.theme-sunset {
+  --primary-color: #ff9100;
+  --primary-hover: #ff6d00;
+  --secondary-color: #ff3d00;
+  --gradient-bg: linear-gradient(135deg, #331c00, #330a00);
+  --accent-gradient: linear-gradient(45deg, #ff9100, #ff3d00);
+  --background-card: rgba(50, 30, 20, 0.8);
+}
+
+/* Winter Night Theme */
+.theme-winter {
+  --primary-color: #a5b4fc;
+  --primary-hover: #818cf8;
+  --secondary-color: #60a5fa;
+  --text-color: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --background-dark: #1e293b;
+  --background-card: rgba(30, 41, 59, 0.7);
+  --overlay-color: rgba(30, 41, 59, 0.8);
+  --shadow-color: rgba(30, 41, 59, 0.5);
+  --gradient-bg: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --accent-gradient: linear-gradient(45deg, #a5b4fc, #60a5fa);
+}
+
+/* Northern Lights Theme */
+.theme-aurora {
+  --primary-color: #4ade80;
+  --primary-hover: #22c55e;
+  --secondary-color: #10b981;
+  --text-color: #ecfdf5;
+  --text-secondary: #d1fae5;
+  --background-dark: #042f2e;
+  --background-card: rgba(6, 78, 59, 0.7);
+  --overlay-color: rgba(6, 78, 59, 0.8);
+  --shadow-color: rgba(6, 78, 59, 0.5);
+  --gradient-bg: linear-gradient(135deg, #042f2e 0%, #064e3b 100%);
+  --accent-gradient: linear-gradient(45deg, #4ade80, #10b981);
+}
+
+/* Moonlit Night Theme */
+.theme-moonlit {
+  --primary-color: #60a5fa;
+  --primary-hover: #3b82f6;
+  --secondary-color: #818cf8;
+  --text-color: #f0f9ff;
+  --text-secondary: #bfdbfe;
+  --background-dark: #1e1b4b;
+  --background-card: rgba(30, 58, 138, 0.7);
+  --overlay-color: rgba(30, 58, 138, 0.8);
+  --shadow-color: rgba(30, 58, 138, 0.5);
+  --gradient-bg: linear-gradient(135deg, #1e1b4b 0%, #1e3a8a 100%);
+  --accent-gradient: linear-gradient(45deg, #60a5fa, #818cf8);
+}
+/* Ocean Void Theme 
+.theme-oceanvoid {
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary-color: #8b5cf6;
+  --text-color: #f0f9ff;
+  --text-secondary: #bfdbfe;
+  --background-dark: #0c1c33;
+  --background-card: rgba(15, 35, 55, 0.7);
+  --overlay-color: rgba(15, 35, 55, 0.8);
+  --shadow-color: rgba(15, 35, 55, 0.5);
+  --gradient-bg: linear-gradient(135deg, #0c1c33 0%, #1e3a8a 100%);
+  --accent-gradient: linear-gradient(45deg, #3b82f6, #8b5cf6);
+}
+
+.theme-oceanvoid .dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.1) 100%, transparent),
+    radial-gradient(2px 2px at 40% 40%, rgba(255, 255, 255, 0.2) 100%, transparent),
+    radial-gradient(2px 2px at 30% 30%, rgba(255, 255, 255, 0.3) 100%, transparent);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  animation: starsAnimation 180s linear infinite;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.theme-oceanvoid .dashboard-container::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(0deg, rgba(59, 130, 246, 0.3), transparent);
+  z-index: 1;
+  animation: reflectionPulse 8s ease-in-out infinite;
+}
+
+@keyframes reflectionPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+.theme-oceanvoid .moon {
+  background: linear-gradient(135deg, #f0f9ff 0%, #93c5fd 100%);
+  box-shadow: 
+    0 0 30px #3b82f6,
+    0 0 60px rgba(59, 130, 246, 0.4),
+    0 0 90px rgba(59, 130, 246, 0.2);
+}*/
+.theme-moonlit .dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50% 50%, #fff 100%, transparent),
+    radial-gradient(1px 1px at 40% 40%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 30% 30%, #fff 100%, transparent),
+    radial-gradient(2px 2px at 20% 20%, #fff 100%, transparent);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  animation: starsAnimation 120s linear infinite;
+  opacity: 0.3;
+}
+
+/* Add floating clouds effect */
+.theme-moonlit .dashboard-container::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="500" cy="500" r="200" fill="%23fff" opacity="0.1"/></svg>');
+  background-size: 1000px 1000px;
+  animation: cloudFloat 60s linear infinite;
+  opacity: 0.1;
+}
+
+@keyframes starsAnimation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-550px);
+  }
+}
+
+@keyframes cloudFloat {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(1000px, 0);
+  }
+}
+
+.theme-moonlit .star {
+  background: #fff;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.8);
+  width: 2px;
+  height: 2px;
+}
+
+/* Global Reset and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-color);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-dark);
+}
+
+/* Main Container */
+.dashboard-container {
+  position: relative;
+  min-height: 100vh;
+  background: var(--gradient-bg);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease;
+  transition: all 0.5s ease;
+}
+
+.dashboard-container .moon.moonlit ~ * {
+  filter: brightness(1.2);
+}
+
+/* Add animated particles in the background */
+.dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+  pointer-events: none;
+  animation: particleFloat 60s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Moon Style */
+.moon {
+  position: fixed;
+  top: 30px;
+  right: 60px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #bfdbfe 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 30px #e1e8f5,
+    0 0 60px rgba(225, 232, 245, 0.4),
+    0 0 90px rgba(225, 232, 245, 0.2),
+    inset -20px -20px 50px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  animation: moonGlow 12s ease-in-out infinite;
+  transition: all 0.5s ease;
+}
+
+.moon.moonlit {
+  box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.4);
+  animation: slowPulse 8s infinite;
+}
+
+@keyframes slowPulse {
+  0% {
+    box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 150px 75px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px #e1e8f5,
+      0 0 60px rgba(225, 232, 245, 0.4),
+      0 0 90px rgba(225, 232, 245, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px #e1e8f5,
+      0 0 80px rgba(225, 232, 245, 0.5),
+      0 0 120px rgba(225, 232, 245, 0.3);
+  }
+}
+
+/* Theme-specific moon colors */
+.theme-moonlit .moon {
+  background: linear-gradient(135deg, #f0f9ff 0%, #bfdbfe 100%);
+  box-shadow: 
+    0 0 30px #60a5fa,
+    0 0 60px rgba(96, 165, 250, 0.4),
+    0 0 90px rgba(96, 165, 250, 0.2);
+}
+
+.theme-winter .moon {
+  background: linear-gradient(135deg, #e2e8f0 0%, #a5b4fc 100%);
+  box-shadow: 
+    0 0 30px #a5b4fc,
+    0 0 60px rgba(165, 180, 252, 0.4),
+    0 0 90px rgba(165, 180, 252, 0.2);
+}
+
+/* Winter Night Theme */
+.theme-winter .dashboard-container {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Northern Lights Theme */
+.theme-aurora .dashboard-container {
+  background-color: #042f2e;
+  color: #ecfdf5;
+}
+
+/* Header Styles */
+.dashboard-header {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.chibi-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary-color);
+  text-shadow: 0 2px 10px rgba(var(--primary-color-rgb, 255, 61, 113), 0.5);
+  letter-spacing: 1px;
+}
+
+/* Theme-specific heading colors */
+.theme-moonlit .dashboard-header h1 {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+}
+
+.theme-forest .dashboard-header h1 {
+  background: linear-gradient(45deg, #4ade80, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+}
+
+.theme-winter .dashboard-header h1,
+.theme-aurora .dashboard-header h1 {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Add hover effect for better visibility */
+.theme-moonlit .dashboard-header h1:hover,
+.theme-forest .dashboard-header h1:hover {
+  opacity: 0.9;
+}
+
+/* Add this to your WaifuDashboard.css file to increase chibi size */
+.chibi-img {
+  width: 150px; /* Increased from 70px */
+  height: auto;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+  animation: float 3s ease-in-out infinite;
+}
+
+.chibi-left {
+  animation-delay: 0.5s;
+}
+
+.chibi-right {
+  animation-delay: 1s;
+}
+
+@media (max-width: 768px) {
+  .chibi-img {
+    width: 70px; /* Increased from 50px for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .chibi-img {
+    width: 60px; /* Increased from 40px for small mobile */
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Button Styles */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-button {
+  background: var(--accent-gradient);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(var(--primary-color-rgb, 255, 61, 113), 0.4);
+}
+
+.action-button:active {
+  transform: translateY(-1px);
+}
+
+.button-icon {
+  font-size: 1.2rem;
+}
+
+.favorites-button.active {
+  background: linear-gradient(45deg, var(--primary-hover), var(--secondary-color));
+}
+
+/* Waifu Grid Styles */
+.waifu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.waifu-card {
+  background: var(--background-card);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.waifu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 140%; /* 7:10 aspect ratio */
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.waifu-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover .waifu-img {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(50, 50, 50, 0.2), rgba(70, 70, 70, 0.3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 3;
+}
+
+.action-icon {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(3px);
+}
+
+.action-icon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.favorite-btn {
+  color: #ffffff;
+}
+
+.favorite-btn.favorited {
+  color: #ff3d71;
+}
+
+.theme-cyberpunk .favorite-btn.favorited {
+  color: #00fff0;
+}
+
+.theme-sunset .favorite-btn.favorited {
+  color: #ff9100;
+}
+
+.theme-winter .favorite-btn.favorited {
+  color: #a5b4fc;
+}
+
+.theme-aurora .favorite-btn.favorited {
+  color: #4ade80;
+}
+
+.theme-oceanvoid .favorite-btn.favorited {
+  color: #3b82f6;
+}
+.download-btn {
+  color: #ffffff;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--background-card);
+  border-radius: var(--card-radius);
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+  z-index: 11;
+}
+
+.close-modal:hover {
+  background: rgba(50, 50, 50, 0.8);
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--button-radius);
+  background: var(--accent-gradient);
+  color: white;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  transition: var(--transition-normal);
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-btn.favorite-btn.favorited {
+  background: linear-gradient(45deg, var(--primary-hover), var(--secondary-color));
+}
+
+/* Loading and Error Styles */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.loading-animation {
+  width: 300px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.error-container {
+  background: rgba(255, 50, 50, 0.1);
+  border-left: 4px solid #ff3232;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  max-width: 600px;
+}
+
+.error-text {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.retry-button {
+  background: #ff3232;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  transition: var(--transition-normal);
+}
+
+.retry-button:hover {
+  background: #ff4f4f;
+}
+
+.empty-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--background-card);
+  border-radius: var(--card-radius);
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.empty-favorites p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* Footer Styles */
+.dashboard-footer {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .waifu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .waifu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .action-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .waifu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  
+  .card-actions {
+    padding: 0.5rem;
+  }
+  
+  .action-icon {
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .loading-animation {
+    width: 100px;
+  }
+  
+  .loading-text {
+    font-size: 1rem;
+  }
+}
+
+/* Cosmic Void Theme */
+.theme-cosmic {
+  --primary-color: #8e2de2;
+  --primary-hover: #7928ca;
+  --secondary-color: #4a00e0;
+  --text-color: #f8f9fa;
+  --text-secondary: #e9ecef;
+  --background-dark: #0f0418;
+  --background-card: rgba(30, 15, 50, 0.7);
+  --overlay-color: rgba(15, 4, 24, 0.8);
+  --shadow-color: rgba(15, 4, 24, 0.5);
+  --gradient-bg: linear-gradient(135deg, #0f0418 0%, #200837 100%);
+  --accent-gradient: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+
+.theme-cosmic .dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.15) 100%, transparent),
+    radial-gradient(2px 2px at 40% 40%, rgba(255, 255, 255, 0.2) 100%, transparent),
+    radial-gradient(2px 2px at 30% 30%, rgba(255, 255, 255, 0.3) 100%, transparent),
+    radial-gradient(4px 4px at 20% 20%, rgba(168, 85, 247, 0.3) 100%, transparent);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  animation: starsAnimation 180s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.cosmic-beam {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 200vh;
+  background: linear-gradient(to bottom, 
+    transparent 0%,
+    rgba(142, 45, 226, 0.2) 15%,
+    rgba(142, 45, 226, 0.8) 50%,
+    rgba(74, 0, 224, 0.8) 51%,
+    rgba(74, 0, 224, 0.2) 85%,
+    transparent 100%
+  );
+  opacity: 0.8;
+  filter: blur(4px);
+  animation: beamPulse 8s infinite;
+  z-index: 1;
+}
+
+.cosmic-planet-1,
+.cosmic-planet-2 {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.cosmic-planet-1 {
+  width: 160px;
+  height: 160px;
+  left: 15%;
+  top: 30%;
+  background: linear-gradient(135deg, #312e81 0%, #4c1d95 100%);
+  box-shadow: 
+    0 0 30px rgba(168, 85, 247, 0.4),
+    inset -40px -40px 80px rgba(0, 0, 0, 0.6);
+  animation: planetFloat 20s infinite ease-in-out;
+}
+
+.cosmic-planet-2 {
+  width: 120px;
+  height: 120px;
+  right: 15%;
+  top: 40%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+  box-shadow: 
+    0 0 25px rgba(59, 130, 246, 0.4),
+    inset -30px -30px 60px rgba(0, 0, 0, 0.6);
+  animation: planetFloat 15s infinite ease-in-out reverse;
+}
+
+@keyframes beamPulse {
+  0%, 100% {
+    opacity: 0.8;
+    width: 4px;
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 1;
+    width: 6px;
+    filter: blur(6px);
+  }
+}
+
+@keyframes planetFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Update Default (Sakura Pink) Theme */
+.theme-default.moonlit .dashboard-container {
+  filter: brightness(1.2);
+}
+
+.theme-default .dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 61, 113, 0.15) 100%, transparent),
+    radial-gradient(2px 2px at 40% 40%, rgba(255, 61, 113, 0.2) 100%, transparent);
+  background-size: 550px 550px, 350px 350px;
+  animation: starsAnimation 180s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* Update Ocean Void Theme 
+.theme-oceanvoid.moonlit .dashboard-container {
+  filter: brightness(1.2);
+}
+
+.theme-oceanvoid .dashboard-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50% 50%, rgba(59, 130, 246, 0.15) 100%, transparent),
+    radial-gradient(2px 2px at 40% 40%, rgba(59, 130, 246, 0.2) 100%, transparent);
+  background-size: 550px 550px, 350px 350px;
+  animation: starsAnimation 180s linear infinite;
+  opacity: 0.6;
+  z-index: 1;
+}*/
+
+/* Update Northern Lights Theme */
+.theme-aurora.moonlit .dashboard-container {
+  filter: brightness(1.2);
+}
+
+.theme-aurora .aurora-waves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(74, 222, 128, 0.2) 40%,
+    rgba(16, 185, 129, 0.4) 60%,
+    transparent 100%
+  );
+  animation: auroraWave 15s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes auroraWave {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-30px) scaleY(1.2);
+    opacity: 0.6;
+  }
+}
+
+/* Ensure effects are visible with moonlight for all themes */
+.theme-default .cosmic-beam,
+.theme-default.moonlit .cosmic-beam,
+.theme-oceanvoid .cosmic-beam,
+.theme-oceanvoid.moonlit .cosmic-beam,
+.theme-aurora .aurora-waves,
+.theme-aurora.moonlit .aurora-waves {
+  filter: none;
+  opacity: 0.8;
+}
