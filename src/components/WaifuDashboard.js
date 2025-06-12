@@ -376,7 +376,7 @@ const WaifuDashboard = () => {
       )}
       
       <footer className="dashboard-footer">
-        <p>© {new Date().getFullYear()}</p>
+        <p>© {new Date().getFullYear()} Anime Waifu Collection | Images from waifu.pics API </p>
       </footer>
     </div>
   );
